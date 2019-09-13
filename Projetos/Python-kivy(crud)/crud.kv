@@ -1,0 +1,96 @@
+<Principal>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        BoxLayout:
+            id: clientes
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+
+    BoxLayout:
+        size_hint_y: None #isso faz com que no eixo y ele fique no final, ou seja, sem posiçaõ
+        height: '40dp' #tamanho
+
+        Label:
+            text: 'Nome'
+            font_size: 30
+        TextInput:
+            id: nome
+            font_size: 30
+
+        Label:
+            text: 'Idade'
+            font_size: 30
+        TextInput:
+            id: idade
+            font_size: 30
+
+
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+        Button:
+            text: 'Cadastrar'
+            size_hint_x: 15 #largura
+            font_size: 30
+            on_release: root.cadastrar_cliente()
+        Button:
+            text: 'Remover'
+            size_hint_x: 15
+            font_size: 30
+            on_release: root.remover_cliente()
+        Button:
+            text: 'Editar'
+            size_hint_x: 15
+            font_size: 30
+            on_release: root.editar_cliente()
+
+<BotaoListagem>:
+    font_size: 30
+    size_hint_y: None
+    height: 50
+
+<ExclusaoPopup>:
+    title_size: 30
+    title: 'Confirmar'
+    size_hint: .8, .5
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Tem Certeza que deseja remover o cliente?'
+            font_size: 25
+            haling: 'center' #alinhamento horizontal no centro da tela
+            valign: 'middle' #alinhamento vertical ao meio da tela
+        BoxLayout:
+            size_hint: 1, .2
+            Button:
+                text: 'Sim'
+                on_release:
+                    root.funcao()
+                    root.dismiss()
+            Button:
+                text: root.nao
+                on_release: root.dismiss()
+
+<MenssagemPopup>:
+    title_size: 30
+    title: root.titulo
+    size_hint: .8, .5
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            font_size: 30
+            text: root.msg
+            font_size: 25
+            haling: 'center' #alinhamento horizontal no centro da tela
+            valign: 'middle' #alinhamento vertical ao meio da tela
+        BoxLayout:
+            Button:
+                font_size: 30
+                size_hint: .8, .5
+                text: 'Ok'
+                on_release: root.dismiss()

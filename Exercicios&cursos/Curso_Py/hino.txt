@@ -1,0 +1,9 @@
+banana,
+prata,
+carro,
+borracha,
+sorte,
+barco,
+bika,
+boca.
+fim!
